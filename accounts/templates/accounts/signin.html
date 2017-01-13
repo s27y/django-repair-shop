@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load mytags %}
+
+{% block content %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<div>
+<form action="{% url 'accounts:login' %}" method="post"style="float: left;">
+    {% csrf_token %}
+    {{ login_form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <input type="submit" value="Submit" />
+</form>
+<div>
+</div>
+<form action="{% url 'accounts:signup' %}" method="post" style="float: right;">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+    <!-- modal
+    ================================================== -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Login to site.com</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form id="loginForm" method="POST" action="{% url 'accounts:login' %}" >
+                              {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="id_username">Username:</label>
+                                    <input class="form-control" id="id_username" maxlength="30" name="username" placeholder="example@gmail.com" type="text" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_password">Password:</label>
+                                    <input class="form-control" id="id_password" name="password" type="password" required="">
+                                </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember"> Remember login
+                                  </label>
+                                  <p class="help-block">(if this is a private computer)</p>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block">Login</button>
+                              <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+                              <a href="{% url 'accounts:password_reset' %}" class="btn btn-default btn-block">Help to login</a>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>See all your orders</li>
+                          <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Fast re-order</li>
+                          <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save your favorites</li>
+                          <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Fast checkout</li>
+                          <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Get a gift <small>(only new customers)</small></li>
+                          <li><a href="/read-more/"><u>Read more</u></a></li>
+                      </ul>
+                      <p><a href="{% url 'accounts:signup' %}" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ job }}</h1>
+<div class="panel panel-default">
+<div class="panel-heading">Detail:</div>
+Order created: {{job.entry_date }}
+
+<p>Product: {{ job.product }}</p>
+<p>Problem: {{ job.problem }}</p>
+</div>
+<div class="panel {% if job.address %} panel-default {% else %} panel-warning {% endif %}"> 
+<div class="panel-heading">Address:</div>
+{% if job.address %}
+    {{ job.address }}
+{% else %}
+    <p>Please select an address for collection.</p>
+    <select class="form-control">
+    {% for ad in address_histories %}
+    <option>{{ ad }}</option>
+    {% empty %}
+    <option>No address avaialble</option>
+    {% endfor %}
+    </select>
+    
+    <a href="{% url 'repairs:address' job.id %}" type="button" class="btn btn-warning">Add Address</a>
+{% endif %}
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">History:</div>
+<ul>
+{% for history in job.history_set.all %}
+    <li {% if forloop.counter0 <= 0 %}class="lead"{% endif %} >
+        {{ history.status.status_text }} - {{ history.date }}
+    </li>
+{% empty %}
+    <li>No history avaialble at the moment.</li>
+{% endfor %}
+</ul>
+</div>
+
+<a href="{% url 'repairs:request_update' job.id %}" type="button" class="btn btn-primary">Request an update</a>
+
+{% endblock %}

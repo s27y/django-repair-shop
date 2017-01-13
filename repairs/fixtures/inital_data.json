@@ -1,0 +1,27 @@
+[
+    {
+        "model": "repairs.status",
+        "pk": 1,
+        "fields": {
+            "status_text": "Customer request repair update.",
+            "index": 99
+        }
+    },
+    {
+        "model": "repairs.status",
+        "pk": 100,
+        "fields": {
+            "status_text": "Attention: Please update collection address.",
+            "index": 100
+        }
+    },
+    {
+        "model": "repairs.status",
+        "pk": 2,
+        "fields": {
+            "status_text": "Item recorded.",
+            "index": 1
+        }
+    }
+
+]

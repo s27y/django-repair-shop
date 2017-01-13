@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if jobs %}
+    <p>Avaibale repairs</p>
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Problem</th><th>Entry Date</th><th>Status</th><th>Updated on</th>
+        </tr>
+    {% for job in jobs %}
+        <tr>
+            <td><a href="{% url 'repairs:detail' job.id %}">{{ job.problem}} </a></td><td>{{job.entry_date }} </td>
+            <td>
+            {% if job.get_latest_history %}
+                {{ job.get_latest_history.status.status_text }}({{ job.get_latest_history.comment|truncatechars:20|default:"nothing"  }})
+            {% else %}
+            -
+            {% endif %}
+            </td>
+            <td>
+            {% if job.get_latest_history %}
+                {{ job.get_latest_history.date }}
+            {% else %}
+            -
+            {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </div>
+{% else %}
+    <p>You do not have any repair.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href="{% url 'repairs:quotation' %}" type="button" class="btn btn-primary">Request a repair quotation</a>
+{% else %}
+<a href="{% url 'repairs:quotation' %}" type="button" class="btn btn-primary" id="demo">
+<span onclick="open_login_modal();return false;">Login to Request a repair quotation</span>
+</a>
+
+{% endif %}
+{% endblock %}

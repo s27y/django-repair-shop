@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form id="quotation_form" action="{% url 'repairs:quotation' %}" method="post" style="margin: 0 auto;max-width: 330px;">
+
+    {% csrf_token %}
+{% for field in form %}
+    <div class="form-group">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+    <button type="submit" value="Submit" class="btn btn-success btn-block">Submit</button>
+</form>
+
+
+
+{% endblock %}
+
+{% block jquery_script %}
+<script>
+/**
+// this is the id of the form
+$("#quotation_form").submit(function(e) {
+
+    var url = "{% url 'repairs:quotation' %}"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#quotation_form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+**/
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block app_stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}" />
+{% endblock %}
+
+
+{% block carousel %}
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="{% static 'main/images/Carousel_Cellphone_Repair.png' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="http://getbootstrap.com/2.3.2/examples/carousel.html">Sign up today</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'main/images/Carousel_Cellphone_Repair_2.png' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="http://getbootstrap.com/2.3.2/examples/carousel.html">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.carousel-inner -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+    </div><!-- /.carousel -->
+{% endblock %}
+
+{% block content %}
+    <div class="marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="span4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFJklEQVR4Xu3Y2yulfxTH8eUUVw43pCTlEModLoSIPxsp5XTFCJEklBwTF3Kevt8yjf3bP/Ya0xr70/upaTJ7TetZn/Wa5/vsqbi6uno1LhIoMYEKwJSYFGU5AcAAwZUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBADjiotiwGDAlQBgXHFRDBgMuBIAjCsuigGDAVcCgHHFRTFgMOBKADCuuCgGDAZcCQDGFRfFgMGAKwHAuOKiGDAYcCUAGFdcFAMGA64EAOOKi2LAYMCVAGBccVEMGAy4EgCMKy6KAYMBVwKAccVFMWAw4EoAMK64KAYMBlwJAMYVF8WAwYArAcC44qIYMBhwJQAYV1wUAwYDrgQA44qLYsBgwJUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBMoazMnJiW1ubuaBp6en/zP4/v6+pV+/f/7y8mI7Ozt2cXFhr6+v1tzcbD09PVZZWflpcNH9Pr2hf1BQtmDSwu/u7vLyi4F5fn62xcVFe3h4yDDeQB0cHNje3p719/fnv7e1tZXBtLe3fxh/dL9/YKGklmUL5vDwMC95ZmamKJjj42O7vLy08/Pzd5+vrKzY7e2tjY+PZ0gLCwtWX19vQ0NDtrS0lP9sZGTE3sDV1dXlz46Ojv5qv+Hh4ZIW9N2KyhbMW5DFwKSlp+V3d3fb+vr6OzDz8/P29PRkU1NTGcfc3JxVVVXZ5OSknZ6e2sbGhg0MDNj19XVGMjg4aI2Njb/29jf7fTcMpdyPJJizs7N8VI2Ojtrs7Ow7MIULTz9XVFRkQOlKT6DHx0e7v7+31tbWX0fXR0C/0q+UJX2nGkkwq6ur1tTUlJ8whUCKPWGqq6ttYmIi7yUt/8ePHxlRAldbW/tuX8WeMF/p950wlHIvkmDelloYwNjYWD6ibm5u3r3DNDQ05PeUdKUjKb33pOOqs7PTOjo6PgXzlX6lLOk71UiC+T3gwidCelne3d21vr6+XLa9vW29vb3W1taWv2qvra1ZV1dXfulN36gSpPRS/NGR9Kf9vhOEUu+lbMH837/qwv+PKQSTnhzp/SYdPenYaWlpyUdXArK8vGw1NTWWvsGkuvQ+k35PP6ejrNj1p/1S73K8yhZMOYatcM+AUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMPwH8cN2mTmL0hgAAAABJRU5ErkJggg==" style="width: 140px; height: 140px;">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <p><a class="btn" href="http://getbootstrap.com/2.3.2/examples/carousel.html#">View details »</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFJklEQVR4Xu3Y2yulfxTH8eUUVw43pCTlEModLoSIPxsp5XTFCJEklBwTF3Kevt8yjf3bP/Ya0xr70/upaTJ7TetZn/Wa5/vsqbi6uno1LhIoMYEKwJSYFGU5AcAAwZUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBADjiotiwGDAlQBgXHFRDBgMuBIAjCsuigGDAVcCgHHFRTFgMOBKADCuuCgGDAZcCQDGFRfFgMGAKwHAuOKiGDAYcCUAGFdcFAMGA64EAOOKi2LAYMCVAGBccVEMGAy4EgCMKy6KAYMBVwKAccVFMWAw4EoAMK64KAYMBlwJAMYVF8WAwYArAcC44qIYMBhwJQAYV1wUAwYDrgQA44qLYsBgwJUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBMoazMnJiW1ubuaBp6en/zP4/v6+pV+/f/7y8mI7Ozt2cXFhr6+v1tzcbD09PVZZWflpcNH9Pr2hf1BQtmDSwu/u7vLyi4F5fn62xcVFe3h4yDDeQB0cHNje3p719/fnv7e1tZXBtLe3fxh/dL9/YKGklmUL5vDwMC95ZmamKJjj42O7vLy08/Pzd5+vrKzY7e2tjY+PZ0gLCwtWX19vQ0NDtrS0lP9sZGTE3sDV1dXlz46Ojv5qv+Hh4ZIW9N2KyhbMW5DFwKSlp+V3d3fb+vr6OzDz8/P29PRkU1NTGcfc3JxVVVXZ5OSknZ6e2sbGhg0MDNj19XVGMjg4aI2Njb/29jf7fTcMpdyPJJizs7N8VI2Ojtrs7Ow7MIULTz9XVFRkQOlKT6DHx0e7v7+31tbWX0fXR0C/0q+UJX2nGkkwq6ur1tTUlJ8whUCKPWGqq6ttYmIi7yUt/8ePHxlRAldbW/tuX8WeMF/p950wlHIvkmDelloYwNjYWD6ibm5u3r3DNDQ05PeUdKUjKb33pOOqs7PTOjo6PgXzlX6lLOk71UiC+T3gwidCelne3d21vr6+XLa9vW29vb3W1taWv2qvra1ZV1dXfulN36gSpPRS/NGR9Kf9vhOEUu+lbMH837/qwv+PKQSTnhzp/SYdPenYaWlpyUdXArK8vGw1NTWWvsGkuvQ+k35PP6ejrNj1p/1S73K8yhZMOYatcM+AUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMPwH8cN2mTmL0hgAAAABJRU5ErkJggg==" style="width: 140px; height: 140px;">
+          <h2>Heading</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="http://getbootstrap.com/2.3.2/examples/carousel.html#">View details »</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" data-src="holder.js/140x140" alt="140x140" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFJklEQVR4Xu3Y2yulfxTH8eUUVw43pCTlEModLoSIPxsp5XTFCJEklBwTF3Kevt8yjf3bP/Ya0xr70/upaTJ7TetZn/Wa5/vsqbi6uno1LhIoMYEKwJSYFGU5AcAAwZUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBADjiotiwGDAlQBgXHFRDBgMuBIAjCsuigGDAVcCgHHFRTFgMOBKADCuuCgGDAZcCQDGFRfFgMGAKwHAuOKiGDAYcCUAGFdcFAMGA64EAOOKi2LAYMCVAGBccVEMGAy4EgCMKy6KAYMBVwKAccVFMWAw4EoAMK64KAYMBlwJAMYVF8WAwYArAcC44qIYMBhwJQAYV1wUAwYDrgQA44qLYsBgwJUAYFxxUQwYDLgSAIwrLooBgwFXAoBxxUUxYDDgSgAwrrgoBgwGXAkAxhUXxYDBgCsBwLjiohgwGHAlABhXXBQDBgOuBMoazMnJiW1ubuaBp6en/zP4/v6+pV+/f/7y8mI7Ozt2cXFhr6+v1tzcbD09PVZZWflpcNH9Pr2hf1BQtmDSwu/u7vLyi4F5fn62xcVFe3h4yDDeQB0cHNje3p719/fnv7e1tZXBtLe3fxh/dL9/YKGklmUL5vDwMC95ZmamKJjj42O7vLy08/Pzd5+vrKzY7e2tjY+PZ0gLCwtWX19vQ0NDtrS0lP9sZGTE3sDV1dXlz46Ojv5qv+Hh4ZIW9N2KyhbMW5DFwKSlp+V3d3fb+vr6OzDz8/P29PRkU1NTGcfc3JxVVVXZ5OSknZ6e2sbGhg0MDNj19XVGMjg4aI2Njb/29jf7fTcMpdyPJJizs7N8VI2Ojtrs7Ow7MIULTz9XVFRkQOlKT6DHx0e7v7+31tbWX0fXR0C/0q+UJX2nGkkwq6ur1tTUlJ8whUCKPWGqq6ttYmIi7yUt/8ePHxlRAldbW/tuX8WeMF/p950wlHIvkmDelloYwNjYWD6ibm5u3r3DNDQ05PeUdKUjKb33pOOqs7PTOjo6PgXzlX6lLOk71UiC+T3gwidCelne3d21vr6+XLa9vW29vb3W1taWv2qvra1ZV1dXfulN36gSpPRS/NGR9Kf9vhOEUu+lbMH837/qwv+PKQSTnhzp/SYdPenYaWlpyUdXArK8vGw1NTWWvsGkuvQ+k35PP6ejrNj1p/1S73K8yhZMOYatcM+AUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMgAkMW6EVYBS2GDgDYALDVmgFGIUtBs4AmMCwFVoBRmGLgTMAJjBshVaAUdhi4AyACQxboRVgFLYYOANgAsNWaAUYhS0GzgCYwLAVWgFGYYuBMwAmMGyFVoBR2GLgDIAJDFuhFWAUthg4A2ACw1ZoBRiFLQbOAJjAsBVaAUZhi4EzACYwbIVWgFHYYuAMPwH8cN2mTmL0hgAAAABJRU5ErkJggg==" style="width: 140px; height: 140px;">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="http://getbootstrap.com/2.3.2/examples/carousel.html#">View details »</a></p>
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+    </div><!-- /.marketing -->
+{% endblock %}
+
+

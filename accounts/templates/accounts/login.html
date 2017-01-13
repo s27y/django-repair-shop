@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'accounts:password_reset' %}">Lost password?</a></p>
+<p><a href="{% url 'accounts:signup' %}">Sign up?</a></p>
+
+<!-- Button trigger modal -->
+<a type="button" class="btn " data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</a>
+
+
+
+{% endblock %}
