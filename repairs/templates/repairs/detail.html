@@ -15,16 +15,23 @@ Order created: {{job.entry_date }}
 {% if job.address %}
     {{ job.address }}
 {% else %}
+<form action="{% url 'repairs:comfirm_address' %}" method="post" style="max-width: 330px;">
+    {% csrf_token %}
     <p>Please select an address for collection.</p>
-    <select class="form-control">
+    <input type="hidden" name="job_id" value="{{ job.id }}" />
+    <select id="address_id" name="address_id"  class="form-control">
     {% for ad in address_histories %}
-    <option>{{ ad }}</option>
+        <option value="{{ad.id}}">
+            {{ ad }}
+        </option>
     {% empty %}
-    <option>No address avaialble</option>
+        <option>No address avaialble</option>
     {% endfor %}
     </select>
     
-    <a href="{% url 'repairs:address' job.id %}" type="button" class="btn btn-warning">Add Address</a>
+    <a href="{% url 'repairs:address' job.id %}" type="button" class="btn btn-primary">Add Address</a>
+    <button type="submit" class="btn btn-primary ">Comfirm Selected Address</button>
+</form>
 {% endif %}
 </div>
 <div class="panel panel-default">

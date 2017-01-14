@@ -39,7 +39,7 @@ class DetailView(LoginRequiredMixin, generic.DetailView):
         
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context['address_histories'] = Address.objects.filter(job__user=self.request.user).distinct()
+        context['address_histories'] = Address.objects.filter(user=self.request.user).distinct()
         return context
 
 
@@ -72,7 +72,7 @@ def repair_quotation(request):
                 job_obj.save()
                 #messages.success(request, 'Your repair quotation has been submitted!')
                 messages.info(request, 'Please select an address for collection.')
-                return HttpResponseRedirect(reverse('repairs:address'))
+                return HttpResponseRedirect(reverse('repairs:address', args=[job_obj.id]))
             else:
                 messages.error(request, 'Please signin to make a repair quotation.')
                 # Do something for anonymous users.
@@ -126,7 +126,9 @@ def address_view(request,job_id):
     if request.method == 'POST':
         address_form = AddressForm(request.POST)
         if address_form.is_valid():
-            address_form.save()
+            address_obj = address_form.save(commit=False)
+            address_obj.user = request.user 
+            address_obj.save()
         return HttpResponseRedirect(reverse('repairs:detail', args=[job_id]))
     else:
         address_form = AddressForm()
@@ -135,5 +137,20 @@ def address_view(request,job_id):
         print '\n'.join(str(p) for p in address_histories) 
         return render(request, 'repairs/address.html', {'job_id': job_id,'address_form': address_form, 'address_histories':address_histories})
 
+def comfirm_address_for_job(request):
+    if request.method == 'POST':
+        address_id = request.POST['address_id']
+        job_id = request.POST['job_id']
+        address_obj = Address.objects.get(pk=address_id)
+        job_obj =Job.objects.get(pk=job_id)
+        if address_obj.user == request.user and job_obj.user == request.user:
+            
+            job_obj.address = address_obj
+            job_obj.save()
+            message.success('Address is comfirmed')
+        else:
+            message.error('Unable to set address.')
+    return HttpResponseRedirect(reverse('repairs:detail', args=[job_id]))
+    pass
 def payment_view(request,job_id):
     pass
